@@ -26,6 +26,7 @@ class FlyersController extends Controller
      */
     public function create()
     {
+        flash()->overlay("WELCOME!!!", "Welcome to the create page!");
         return view('flyers.create');
     }
 
@@ -35,9 +36,17 @@ class FlyersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Requests\FlyerRequest $request)
     {
-        //
+        // Notice the validation is being done through the custom Request in the above parameter
+        // This method won't get triggered if the Request doesn't pass validation in the FlyerRequest.php file
+        \App\Flyer::create($request->all());
+
+        // We've created "flash" as a global function in app/helpers.php
+        // where it accesses the class and object we've created
+        // in app/http called Flash.php
+        flash('Flyer successfully created!');
+        return redirect()->back();
     }
 
     /**

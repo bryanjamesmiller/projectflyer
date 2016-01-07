@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>ProjectFlyer</title>
     <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/libs.css">
 </head>
 <body>
 
@@ -31,7 +32,9 @@
 <div class="container">
     @yield('content')
 </div>
-</div>
+
+<script src="/js/libs.js"></script>
+@include('flash')
 
 </body>
 </html>

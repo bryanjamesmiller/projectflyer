@@ -5755,4 +5755,7 @@ body {
 label {
   margin-top: 10px; }
 
+.form-control {
+  height: 40px; }
+
 /*# sourceMappingURL=app.css.map */
