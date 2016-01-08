@@ -30,4 +30,9 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/', function () {
         return view('static-pages.home');
     });
+
+    // The below matches any URL, so this has got to be put last to only
+    // get called if nothing else first matches the more specific URL.
+    Route::get('{zip}/{street}', 'FlyersController@show');
+    Route::post('{zip}/{street}/photos', 'FlyersController@addPhoto');
 });
