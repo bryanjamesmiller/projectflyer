@@ -31,7 +31,6 @@ class FlyersController extends Controller
      */
     public function create()
     {
-        flash()->overlay("WELCOME!!!", "Welcome to the create page!");
         return view('flyers.create');
     }
 
@@ -43,6 +42,8 @@ class FlyersController extends Controller
      */
     public function store(Requests\FlyerRequest $request)
     {
+        flash()->overlay("Success!", "Listing successfully created.");
+
         // Notice the validation is being done through the custom Request in the above parameter
         // This method won't get triggered if the Request doesn't pass validation in the FlyerRequest.php file
         \App\Flyer::create($request->all());

@@ -16,7 +16,7 @@
             title: "{{ session('flash_message_overlay.title') }}",
             text: "{{ session('flash_message_overlay.message') }}",
             type: "{{ session('flash_message_overlay.level') }}",
-            confirmButtonText: "This is an overlay"
+            confirmButtonText: "Click to dismiss"
         });
     </script>
 @endif
