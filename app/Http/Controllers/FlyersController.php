@@ -15,7 +15,6 @@ class FlyersController extends Controller
     public function __construct()
     {
         // Requires authentication for any of the routes in this controller.
-        $this->middleware('auth', ['except' => ['show']]);
     }
     /**
      * @param $zip
@@ -25,9 +24,6 @@ class FlyersController extends Controller
      */
     public function addPhoto($zip, $street, Request $request)
     {
-        $this->validate($request, [
-           'photo' => 'required|mimes:jpg.jpeg.png.bmp'
-        ]);
         $photo = $this->makePhoto($request->file('photo'));
         Flyer::locatedAt($zip, $street)->addPhoto($photo);
     }
@@ -35,7 +31,6 @@ class FlyersController extends Controller
     protected function makePhoto(UploadedFile $file)
     {
         return Photo::named($file->getClientOriginalName())->move($file);
-
     }
 
 

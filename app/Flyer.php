@@ -35,8 +35,9 @@ class Flyer extends Model
      * @return mixed
      */
     public static function locatedAt($zip, $street){
+
         $street = str_replace('-', ' ', $street);
-        return static::where(compact('zip', 'street'))->first();
+        return static::where(compact('zip'))->firstOrFail();
     }
 
     /**
@@ -68,4 +69,5 @@ class Flyer extends Model
     {
         return $this->hasMany('App\Photo');
     }
+
 }

@@ -16,7 +16,7 @@ class Photo extends Model
     // Mass assignable fields
     protected $fillable = ['path'];
 
-    protected $baseDir = '/flyers/photos';
+    protected $baseDir = 'flyers/photos';
 
     public static function named($name)
     {
@@ -27,11 +27,17 @@ class Photo extends Model
         $this->name = sprintf("%s-%s", time(), $name);
         $this->path = sprintf("%s/%s", $this->baseDir, $this->name);
         $this->thumbnail_path = sprintf("%s/tn-%s", $this->baseDir, $this->name);
+        return $this;
     }
 
-    public function move(UploadedFile $file){
+
+    public function move(UploadedFile $file)
+    {
         $file->move($this->baseDir, $this->name);
-        $this->makeThumbnail();
+        Image::make($this->path)
+            ->fit(200)
+            ->save($this->thumbnail_path);
+
         return $this;
     }
 
