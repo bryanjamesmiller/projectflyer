@@ -53,9 +53,10 @@
     @yield('content')
 </div>
 
-<script src="/js/libs.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.0.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="/js/libs.js"></script>
+
 @yield('scripts.footer')
 @include('flash')
 
