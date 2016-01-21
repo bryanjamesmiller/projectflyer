@@ -76,7 +76,8 @@ class FlyersController extends Controller
         // where it accesses the class and object we've created
         // in app/http called Flash.php
         flash('Flyer successfully created!');
-        return redirect()->back();
+        $street = $street = str_replace('-', ' ', $request->street);
+        return redirect($request->zip . '/' . $street);
     }
 
     /**
