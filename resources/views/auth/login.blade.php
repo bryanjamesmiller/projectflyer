@@ -64,3 +64,9 @@
     </div>
 </div>
 @endsection
+
+@section('scripts.footer')
+    <script>
+        $('body').css("background-image", "url('/images/background.jpg')");
+    </script>
+@stop

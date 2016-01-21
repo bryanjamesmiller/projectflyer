@@ -59,6 +59,5 @@
 @yield('scripts.footer')
 @include('flash')
 
-
 </body>
 </html>

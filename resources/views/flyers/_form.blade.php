@@ -1,4 +1,6 @@
 @inject('countries', 'App\Http\Utilities\Country')
+<div class="well">
+
 <div class="row">
     {{ csrf_field() }}
     <div class="col-md-6">
@@ -39,12 +41,13 @@
             <textarea name="description" class="form-control" rows="10" required></textarea>
         </div>
     </div>
+</div>
 
     <div class="col-xs-12">
         <hr>
     </div>
 
-    <div class="col-xs-12">
+    <div class="col-xs-12 text-center">
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Submit Flyer</button>
         </div>

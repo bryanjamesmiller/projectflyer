@@ -5767,4 +5767,12 @@ img {
 .btn-top-margin {
   margin-top: 10px; }
 
+.white {
+  display: inline;
+  padding: 5px;
+  border-radius: 7px; }
+
+.header_bottom {
+  margin-bottom: 20px; }
+
 /*# sourceMappingURL=app.css.map */
