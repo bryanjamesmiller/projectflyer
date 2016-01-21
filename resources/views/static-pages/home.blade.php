@@ -7,4 +7,11 @@
         you've come to the right place!  Click "Create a Flyer" below or "Create a home listing" above to get started.</p>
         <a href="/flyers/create" class="btn btn-primary">Create a Flyer</a>
     </div>
+
+@stop
+
+@section('scripts.footer')
+    <script>
+        $('body').css("background-image", "url('/images/background.jpg')");
+    </script>
 @stop
