@@ -27,24 +27,28 @@
         </div>
     </div>
 
-        <hr>
+    <hr>
 
-        <form id="addPhotosForm"
-              action="{{route('store_photo_path', [$flyer->zip, $flyer->street])}}"
-              method="POST"
-              class="dropzone">
-            {{csrf_field()}}
-        </form>
+    <form id="addPhotosForm"
+          action="{{route('store_photo_path', [$flyer->zip, $flyer->street])}}"
+          method="POST"
+          class="dropzone">
+        {{csrf_field()}}
+    </form>
+    <div class="row">
+    <div class="col-xs-12 text-center">
+        <a href="/{{$flyer->zip}}/{{$flyer->street}}" class="btn btn-success btn-top-margin" role="button">Continue</a>
+    </div>
+    </div>
+@stop
 
-        @stop
-
-        @section('scripts.footer')
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.2.0/dropzone.js"></script>
-            <script>
-                Dropzone.options.addPhotosForm = {
-                    paramName: 'photo',
-                    maxFileSize: 3,
-                    acceptedFiles: '.jpg, .jpeg, .png, .bmp'
-                };
-            </script>
+@section('scripts.footer')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.2.0/dropzone.js"></script>
+    <script>
+        Dropzone.options.addPhotosForm = {
+            paramName: 'photo',
+            maxFileSize: 3,
+            acceptedFiles: '.jpg, .jpeg, .png, .bmp'
+        };
+    </script>
 @stop
