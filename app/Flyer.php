@@ -36,8 +36,8 @@ class Flyer extends Model
      */
     public static function locatedAt($zip, $street){
 
-        $street = str_replace('-', ' ', $street);
-        return static::where(compact('zip', 'street'))->firstOrFail();
+        //$street = str_replace('-', ' ', $street);
+        return static::where(compact('zip'))->firstOrFail();
     }
 
     /**

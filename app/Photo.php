@@ -16,7 +16,7 @@ class Photo extends Model
     // Mass assignable fields
     protected $fillable = ['path'];
 
-    protected $baseDir = 'flyers/photos';
+    protected $baseDir = 'images/photos';
 
     public static function named($name)
     {

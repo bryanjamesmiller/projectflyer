@@ -14,8 +14,12 @@ class FlyersController extends Controller
 {
     public function __construct()
     {
-        // Requires authentication for any of the routes in this controller.
+
+        //Have to explicitly call the parent constructor because unlike in Java, it won't
+        //get called automatically.
+        parent::__construct();
     }
+
     /**
      * @param $zip
      * @param $street
@@ -62,11 +66,11 @@ class FlyersController extends Controller
      */
     public function store(Requests\FlyerRequest $request)
     {
-        flash()->overlay("Success!", "Listing successfully created.");
-
         // Notice the validation is being done through the custom Request in the above parameter
         // This method won't get triggered if the Request doesn't pass validation in the FlyerRequest.php file
-        \App\Flyer::create($request->all());
+        Flyer::create($request->all());
+
+        flash()->overlay("Success!", "Listing successfully created.");
 
         // We've created "flash" as a global function in app/helpers.php
         // where it accesses the class and object we've created

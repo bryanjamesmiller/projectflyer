@@ -14,7 +14,9 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //Have to explicitly call the parent constructor because unlike in Java, it won't
+        //get called automatically.
+        parent::__construct();
     }
 
     /**
