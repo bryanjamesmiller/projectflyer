@@ -20,6 +20,11 @@ class FlyersController extends Controller
         parent::__construct();
     }
 
+    public function getButton()
+    {
+        return view('button');
+    }
+
     /**
      * @param $zip
      * @param $street
