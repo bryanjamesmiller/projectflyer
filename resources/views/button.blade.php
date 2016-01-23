@@ -9,8 +9,7 @@
     </div>
     <div class="row">
         <div class="col-xs-12">
-            <span id="liked_btn"><button id="vote" class="btn btn-default">Like</button></span>
-            <div class="btn btn-default"><span id="number">{{$total_likes = 0}}</span>&nbsp;Total Likes</div>
+            <span id="liked_btn"><button class="btn btn-default vote_btn"><span class="number">{{$total_likes = 7}}</span>&nbsp;Likes</button></span>
     </div>
 @stop
 
@@ -18,13 +17,16 @@
     <script>
         $(document).ready(function(){
 
-            $('#vote').click(function(e) {
+            $('.vote_btn').click(function(e) {
                 var url = "http://clothing.app/updateProductOption";
                 var $post = {};
+console.log($(this).find(".number").text());
+                console.log($(".number").text());
+                var newNum = parseInt($(".number").text()) + 1;
 
-                $post.size =parseInt($("#number").text()) + 1;
-                $("#number").text($post.size);
-                $('#liked_btn').html('<button id="vote" class="btn btn-success">Liked!</button>')
+                console.log(typeof newNum);
+                console.log(newNum);
+                $(this).parent().html('<button id="vote" class="btn btn-success">' + newNum + ' Liked!</button>')
             });
         });
     </script>
