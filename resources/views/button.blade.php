@@ -9,8 +9,8 @@
     </div>
     <div class="row">
         <div class="col-xs-12">
-            <button id="vote" class="btn btn-default">Like</button>
-            <button  class="btn btn-default"><span id="number">{{$total_likes = 0}}</span>&nbsp;Total Likes</button>
+            <span id="liked_btn"><button id="vote" class="btn btn-default">Like</button></span>
+            <div class="btn btn-default"><span id="number">{{$total_likes = 0}}</span>&nbsp;Total Likes</div>
     </div>
 @stop
 
@@ -24,7 +24,7 @@
 
                 $post.size =parseInt($("#number").text()) + 1;
                 $("#number").text($post.size);
-                console.log($post.size);
+                $('#liked_btn').html('<button id="vote" class="btn btn-success">Liked!</button>')
             });
         });
     </script>
