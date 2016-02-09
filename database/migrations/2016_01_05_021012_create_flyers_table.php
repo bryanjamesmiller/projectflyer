@@ -22,6 +22,8 @@ class CreateFlyersTable extends Migration
             $table->integer('price');
             $table->text('description');
             $table->timestamps();
+            $table->integer('numOfLikes');
+
         });
     }
 

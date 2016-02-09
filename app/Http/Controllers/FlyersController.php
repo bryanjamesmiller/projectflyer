@@ -8,6 +8,8 @@ use App\Flyer;
 use App\Photo;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class FlyersController extends Controller
@@ -22,7 +24,18 @@ class FlyersController extends Controller
 
     public function getButton()
     {
-        return view('button');
+        $flyers = Flyer::all();
+        return view('button', compact('flyers'));
+    }
+
+    public function updateDatabase(Request $request)
+    {
+        if($request->ajax()){
+            $likes = new Flyer();
+            $likes->numOfLikes = $request->get('size');
+            $likes->save();
+            return $request->all();
+        }
     }
 
     /**
@@ -95,7 +108,12 @@ class FlyersController extends Controller
      */
     public function show($zip, $street)
     {
-        $flyer = \App\Flyer::locatedAt($zip, $street);
+
+        //works
+        $flyer = Cache::remember('rightflyer', 1, function() use($zip, $street) {
+            return Flyer::locatedAt($zip, $street);
+        });
+
         return view('flyers.show', compact('flyer'));
     }
 

@@ -12,6 +12,8 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
+    // First app.scss gets compiled into app.css and remains separate from the css files in the .styles() method
+    // Then app.css gets saved in public/css/app.css while the other css files get combined into public/css/libs.css
     mix.sass('app.scss')
         .scripts([
             'libs/sweetalert-dev.js',
