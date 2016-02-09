@@ -11,7 +11,6 @@
 |
 */
 
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -45,3 +44,4 @@ Route::group(['middleware' => 'web'], function () {
 
 
 Route::get('button', 'FlyersController@getButton');
+Route::post('button', 'FlyersController@updateDatabase');
