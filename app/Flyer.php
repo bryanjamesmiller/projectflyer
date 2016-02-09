@@ -35,7 +35,7 @@ class Flyer extends Model
      * @return mixed
      */
     public static function locatedAt($zip, $street){
-//Test for7777777777777777777777777
+//Test rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
         //$street = str_replace('-', ' ', $street);
         return static::where(compact('zip'))->firstOrFail();
     }
