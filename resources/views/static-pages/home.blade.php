@@ -11,6 +11,10 @@
 @stop
 
 @section('scripts.footer')
+    <script type="text/javascript" src="http://rsvpify.dev/app/embed/2"></script>
+    <script type="text/javascript" src="http://rsvpify.dev/app/js/iframeResizer.min.js"></script>
+    <script type="text/javascript">iFrameResize({autoResize: true,heightCalculationMethod: 'max',enablePublicMethods: true}, "#RSVPifyIFrame");</script>
+
     <script>
         $('body').css("background-image", "url('/images/background.jpg')");
     </script>
